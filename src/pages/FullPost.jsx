@@ -37,7 +37,7 @@ export const FullPost = () => {
         title={data.title}
         imageUrl={
           data.imageUrl
-            ? `${process.env.REACT_API_BASE_URL}${data.imageUrl}`
+            ? `${process.env.REACT_APP_BASE_URL}${data.imageUrl}`
             : ""
         }
         user={data.user}
