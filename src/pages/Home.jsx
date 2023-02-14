@@ -11,6 +11,7 @@ import { fetchPosts, fetchTegs } from "../redux/slices/posts";
 
 export const Home = () => {
   const dispatch = useDispatch();
+  const userData = useSelector((state) => state.auth.data);
   const { posts, tegs } = useSelector((state) => state.posts);
 
   const isPostsLoading = posts.status === "loading";
@@ -41,14 +42,16 @@ export const Home = () => {
                 key={index}
                 id={obj._id}
                 title={obj.title}
-                imageUrl="https://res.cloudinary.com/practicaldev/image/fetch/s--UnAfrEG8--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/icohm5g0axh9wjmu4oc3.png"
+                imageUrl={
+                  obj.imageUrl ? `http://localhost:4444${obj.imageUrl}` : ""
+                }
                 user={obj.user}
                 createdAt={obj.createdAt}
                 viewsCount={obj.viewsCount}
                 commentsCount={3}
                 tegs={obj.tegs}
                 isLoading={false}
-                isEditable
+                isEditable={userData?._id === obj.user._id}
               />
             ),
           )}
