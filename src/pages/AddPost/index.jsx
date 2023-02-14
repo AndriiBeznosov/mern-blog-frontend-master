@@ -16,7 +16,7 @@ export const AddPost = () => {
   const navigate = useNavigate();
   const isAuth = useSelector(selectIsAuth);
 
-  const [isLoading, setIsLoading] = React.useState(false);
+  // const [isLoading, setIsLoading] = React.useState(false);
   const [text, setText] = React.useState("");
   const [title, setTitle] = React.useState("");
   const [tegs, setTegs] = React.useState("");
@@ -48,7 +48,7 @@ export const AddPost = () => {
 
   const onSubmit = async () => {
     try {
-      setIsLoading(true);
+      // setIsLoading(true);
       const fields = {
         title,
         imageUrl,
@@ -84,7 +84,7 @@ export const AddPost = () => {
           alert("Помилка для отримання посту");
         });
     }
-  }, []);
+  }, [id]);
 
   const options = React.useMemo(
     () => ({
@@ -131,7 +131,7 @@ export const AddPost = () => {
           </Button>
           <img
             className={styles.image}
-            src={`${process.env.REACT_API_BASE_URL}${imageUrl}`}
+            src={`${process.env.REACT_APP_BASE_URL}${imageUrl}`}
             alt="Uploaded"
           />
         </>
