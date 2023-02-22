@@ -25,7 +25,7 @@ export const Registration = () => {
     defaultValues: {
       fullName: "",
       email: "",
-      password: "",
+      password: " ",
     },
     mode: "all",
   });
